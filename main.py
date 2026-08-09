@@ -1,16 +1,19 @@
-# This is a sample Python script.
+class Fan:
 
-# Press Maj+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    def __init__(self):
+        self.is_on = False
 
+    def turn_on(self):
+        self.is_on = True
+        print("Fan is ON")
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+    def turn_off(self):
+        self.is_on = False
+        print("Fan is OFF")
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+fan = Fan()
+print(fan.is_on)
+fan.turn_on()
+print(fan.is_on)
+fan.turn_off()
+print(fan.is_on)

@@ -1,7 +1,11 @@
 from fan import Fan
+from blender_controller import BlenderFanController
+
 fan = Fan()
+controller = BlenderFanController()
 
 fan.turn_on()
-fan.set_speed(2)
-print(fan.is_on)
-print(fan.speed)
+controller.start_blades()
+
+fan.turn_off()
+controller.stop_blades()

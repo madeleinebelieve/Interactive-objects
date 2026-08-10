@@ -3,6 +3,7 @@ import bpy
 class BlenderFanController:
     def __init__(self, blades_object_name):
         self.blades_object_name = blades_object_name
+        self.is_spinning = False
 
     def get_blades(self):
         return bpy.data.objects.get(self.blades_object_name)
@@ -16,8 +17,17 @@ class BlenderFanController:
 
         blades.rotation_euler.y += angle
 
+    def update_rotation(self):
+        if not self.is_spinning:
+            return None
+
+        self.rotate_blades(0.1)
+
+        return 0.02
+
     def start_blades(self):
-        print("Blender: start blades")
+        self.is_spinning = True
+        bpy.app.timers.register(self.update_rotation)
 
     def stop_blades(self):
-        print("Blender: stop blades")
+        self.is_spinning = False

@@ -23,5 +23,4 @@ class Fan:
             self.speed = speed
             print(f"Fan speed set to {self.speed}")
         else:
-            self.is_on = False
             print(f"Fan is OFF")
